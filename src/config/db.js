@@ -1,9 +1,6 @@
 const knex = require('knex');
-const { Model } = require('objection');
-const knexConfig = require('../knexfile');
+const knexConfig = require('../../knexfile'); // Adjust the path if needed
 
 const db = knex(knexConfig.development);
-
-Model.knex(db);
 
 module.exports = db;

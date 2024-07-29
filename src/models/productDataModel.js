@@ -1,5 +1,6 @@
+
 const { Model } = require('objection');
-const db = require('../db/knex'); // Ensure you import the knex instance
+const db = require('../config/db'); 
 
 Model.knex(db);
 

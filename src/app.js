@@ -1,14 +1,12 @@
 const express = require('express');
 const app = express();
-const productRoutes = require('./routes/productRoutes');
+const productRoutes = require('./routes/productRoutes'); // Adjust path if necessary
 
-// Middleware to parse JSON
-app.use(express.json());
+app.use(express.json()); // Middleware to parse JSON requests
+app.use('/api', productRoutes); // Use productRoutes
 
-// Use product routes
-app.use('/product_data', productRoutes);
-
-const port = 3000;
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
+
