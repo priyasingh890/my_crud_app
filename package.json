@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "main": "src/app.js",
   "scripts": {
-    "migrate":"npx knex migrate:latest --knexfile src/knexfile.js",
-    "start":"node src/app.js",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Your Name",
   "license": "ISC",
-  "description": "",
+  "description": "A CRUD application using Express, Knex, and Objection.js",
   "dependencies": {
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",

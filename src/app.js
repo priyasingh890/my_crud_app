@@ -1,15 +1,14 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const knex = require('./config/db');
-const userRoutes = require('./routes/userRoutes');
-
 const app = express();
+const productRoutes = require('./routes/productRoutes');
 
-app.use(bodyParser.json());
-app.use('/api', userRoutes);
+// Middleware to parse JSON
+app.use(express.json());
 
-const PORT = process.env.PORT || 3002;
+// Use product routes
+app.use('/product_data', productRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
 });

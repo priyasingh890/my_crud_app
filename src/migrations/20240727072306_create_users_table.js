@@ -1,17 +1,13 @@
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
+// src/migrations/<timestamp>_create_product_data_table.js
+
 exports.up = function(knex) {
   return knex.schema.createTable('product_data', table => {
-    table.increments('id').primary(); // Auto-incrementing ID column
-    table.string('name').notNullable(); // Name column
-    table.decimal('price').notNullable(); // Price column
-    table.timestamps(true, true); // Adds created_at and updated_at columns with defaults
+    table.increments('id').primary(); // Primary key with auto-increment
+    table.string('name').notNullable(); // Product name, cannot be null
+    table.integer('price').notNullable(); // Product price, cannot be null
   });
 };
 
-
 exports.down = function(knex) {
-  return knex.schema.dropTableExists('product_data');
+  return knex.schema.dropTable('product_data'); // Drops the product_data table
 };

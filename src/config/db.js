@@ -1,11 +1,9 @@
+const knex = require('knex');
 const { Model } = require('objection');
-const Knex = require('knex');
 const knexConfig = require('../knexfile');
 
-// Initialize knex
-const knex = Knex(knexConfig.development);
+const db = knex(knexConfig.development);
 
-// Bind all Models to the knex instance
-Model.knex(knex);
+Model.knex(db);
 
-module.exports = knex;
+module.exports = db;
