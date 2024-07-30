@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const productRoutes = require('./routes/productRoutes'); // Adjust path if necessary
+const productRoutes = require('./routes/productRoutes'); 
 
-app.use(express.json()); // Middleware to parse JSON requests
-app.use('/api', productRoutes); // Use productRoutes
+app.use(express.json()); 
+app.use('/api', productRoutes); 
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
